@@ -37,7 +37,7 @@ articleSchema.pre('validate',function(next){
         this.slug = slugify(this.title,{lower: true, strict: true})
     }
     if(this.markdown){
-        this.sanitizedhtml = dompurify.sanitize(marked(this.markdown))
+        this.sanitizedhtml = dompurify.sanitize(marked.parse(this.markdown))
     }
     next()
 })
